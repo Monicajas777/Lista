@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package Logica_Cliente;
 
 import Helpers.HelperValidacion;
@@ -22,13 +19,18 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        
+        //abstaccion tiene los atyributos 
         String marca, serial, tamaño, color;
         String nombre, apellido, cedula, direccion;
         int rta, conteo, opc = 0, num_pcs;
-
+        
+// Se crea la lista de compuitador y persona
+// Se crea la lista global = null para que se borre la información y no se sobreescriba 
         ArrayList<Computador> listacompusglobal = null;
         ArrayList<Persona> listapersona = new ArrayList<>();
 
+// Se crean lo objetos computador y persona 
         Computador compu;
         Persona objPersona;
 
@@ -214,6 +216,7 @@ public class Main {
                         conteo = HelperValidacion.ValidarTodoDireccion(direccion);
 
                     }
+                    // En esta parte se hace la asociación
                     objPersona = new Persona(nombre, apellido, direccion, cedula, listacompusglobal);
                     listapersona.add(objPersona);
 
