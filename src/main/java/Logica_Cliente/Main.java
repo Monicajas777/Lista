@@ -1,4 +1,3 @@
-
 package Logica_Cliente;
 
 import Helpers.HelperValidacion;
@@ -19,12 +18,12 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        
+
         //abstaccion tiene los atyributos 
         String marca, serial, tamaño, color;
-        String nombre, apellido, cedula, direccion;
+        String nombre, apellido, cedula = null, direccion;
         int rta, conteo, opc = 0, num_pcs;
-        
+
 // Se crea la lista de compuitador y persona
 // Se crea la lista global = null para que se borre la información y no se sobreescriba 
         ArrayList<Computador> listacompusglobal = null;
@@ -37,7 +36,8 @@ public class Main {
         do {
             System.out.println("1. Registar Persona");
             System.out.println("2. Mostrar Persona");
-            System.out.println("3. Salir");
+            System.out.println("3. Buscar persona");
+            System.out.println("4. Salir");
 
             System.out.println("Digite una opcion valida");
             opc = scan.nextInt();
@@ -221,14 +221,18 @@ public class Main {
                     listapersona.add(objPersona);
 
                     break;
-                case 2: 
+                // cambio la forma de imprimir, es con helperImpresion
+                case 2:
                     Helpers.HelperImpresion.ImprimirInfo(listapersona);
                     break;
                 case 3:
+                    Helpers.HelperImpresion.BuscarPersona(cedula, listapersona);
+                    break;
+                case 4:
                     break;
             }
 
-        } while (opc != 3);
+        } while (opc != 4);
 
     }
 
